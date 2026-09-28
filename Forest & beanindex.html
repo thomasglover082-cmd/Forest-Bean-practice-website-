@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forest & Bean | Coffee, Community & Calm in Ringwood</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        forest: {
+                            50: '#f2f7f4',
+                            100: '#e1ede6',
+                            800: '#2d4a3e',
+                            900: '#1e332a',
+                        },
+                        sage: {
+                            DEFAULT: '#8fa89b',
+                            dark: '#698576',
+                        },
+                        earth: {
+                            100: '#f5f0eb',
+                            800: '#5c4d43',
+                            900: '#3d322b',
+                        },
+                        cream: '#fcfbf7',
+                        warmwood: '#d99b64'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Georgia', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        .photo-placeholder {
+            background-color: #f7f5f0;
+            background-image: radial-gradient(#2d4a3e 0.75px, transparent 0.75px);
+            background-size: 16px 16px;
+        }
+    </style>
+</head>
+<body class="bg-cream text-earth-900 font-sans antialiased selection:bg-sage selection:text-forest-900">
+
+    <!-- Announcement Bar -->
+    <div class="bg-forest-900 text-cream text-xs py-2 px-4 text-center border-b border-sage/20 flex items-center justify-center gap-2">
+        <span class="inline-block w-2 h-2 rounded-full bg-warmwood"></span>
+        <span class="font-medium">
+            Walk-in Cafe • Counter Order • 
+            <a href="https://www.google.com/maps/dir/?api=1&destination=34A+Christchurch+Rd,+Ringwood+BH24+1DN" target="_blank" rel="noopener noreferrer" class="underline hover:text-warmwood transition-colors">
+                34A Christchurch Rd, Ringwood BH24 1DN
+            </a>
+        </span>
+    </div>
+
+    <!-- Navigation Bar -->
+    <header class="sticky top-0 z-50 bg-cream/95 backdrop-blur-md border-b border-forest-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-forest-800 text-warmwood flex items-center justify-center transition-transform group-hover:scale-105 shadow-md">
+                        <i data-lucide="trees" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <span class="font-serif text-xl sm:text-2xl font-bold tracking-tight text-forest-900 block leading-none">Forest & Bean</span>
+                        <span class="text-[10px] uppercase tracking-widest text-earth-800 font-semibold">Ringwood</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Nav Links -->
+                <nav class="hidden md:flex items-center gap-8 text-sm">
+                    <a href="#about" class="text-forest-800 hover:text-warmwood font-medium transition-colors">Our Vibe</a>
+                    <a href="#highlights" class="text-forest-800 hover:text-warmwood font-medium transition-colors">Highlights</a>
+                    <a href="#offerings" class="text-forest-800 hover:text-warmwood font-medium transition-colors">What We Serve</a>
+                    <a href="#dogs" class="text-forest-800 hover:text-warmwood font-medium transition-colors flex items-center gap-1.5">
+                        <i data-lucide="dog" class="w-4 h-4 text-warmwood"></i> Dog Friendly
+                    </a>
+                    <a href="#gallery" class="text-forest-800 hover:text-warmwood font-medium transition-colors">Photos</a>
+                    <a href="#location" class="text-forest-800 hover:text-warmwood font-medium transition-colors">Location & Hours</a>
+                </nav>
+
+                <!-- Instagram Link -->
+                <div class="hidden lg:flex items-center gap-4">
+                    <a href="https://www.instagram.com/forestbean_ringwood?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="bg-forest-800 hover:bg-forest-900 text-cream px-4 py-2 rounded-full text-xs font-semibold transition-all flex items-center gap-2 shadow-sm">
+                        <i data-lucide="instagram" class="w-4 h-4 text-warmwood"></i> @forestbean_ringwood
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-forest-800 hover:bg-forest-50" aria-label="Toggle Menu">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-cream border-b border-forest-100 px-4 pt-2 pb-6 space-y-3">
+            <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-forest-800 hover:bg-forest-50">Our Vibe</a>
+            <a href="#highlights" class="block px-3 py-2 rounded-md text-base font-medium text-forest-800 hover:bg-forest-50">Highlights & Amenities</a>
+            <a href="#offerings" class="block px-3 py-2 rounded-md text-base font-medium text-forest-800 hover:bg-forest-50">What We Serve</a>
+            <a href="#dogs" class="block px-3 py-2 rounded-md text-base font-medium text-forest-800 hover:bg-forest-50">Dog Friendly</a>
+            <a href="#gallery" class="block px-3 py-2 rounded-md text-base font-medium text-forest-800 hover:bg-forest-50">Photos</a>
+            <a href="#location" class="block px-3 py-2 rounded-md text-base font-medium text-forest-800 hover:bg-forest-50">Location & Hours</a>
+            <a href="https://www.instagram.com/forestbean_ringwood?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="block px-3 py-2.5 rounded-md text-base font-semibold bg-forest-800 text-cream text-center">
+                Follow on Instagram
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Banner Section -->
+    <section class="relative bg-gradient-to-b from-forest-900 via-forest-800 to-forest-900 text-cream py-16 sm:py-24 overflow-hidden border-b border-sage/20">
+        <div class="absolute inset-0 opacity-10 pointer-events-none">
+            <svg class="w-full h-full" width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 0h100v100H0z" fill="none"/>
+                <circle cx="50" cy="50" r="40" stroke="#ffffff" stroke-width="1" stroke-dasharray="4 4"/>
+            </svg>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Hero Text -->
+                <div class="lg:col-span-7">
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=34A+Christchurch+Rd,+Ringwood+BH24+1DN" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-md px-4 py-1.5 rounded-full text-xs sm:text-sm font-medium text-cream mb-6 transition-colors">
+                        <i data-lucide="map-pin" class="w-4 h-4 text-warmwood"></i>
+                        <span>34A Christchurch Rd, Ringwood BH24 1DN • Get Directions</span>
+                    </a>
+
+                    <h1 class="font-serif text-4xl sm:text-6xl font-bold tracking-tight text-cream mb-6 leading-tight">
+                        Coffee, Community & Calm
+                    </h1>
+                    
+                    <p class="text-base sm:text-xl text-cream/90 font-light mb-8 leading-relaxed max-w-2xl">
+                        Your friendly local retreat in Ringwood[cite: 1]. Step in for specialty coffee, artisan teas, breakfast, homemade desserts, and a warm welcome for you and your dog[cite: 1].
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-8">
+                        <a href="#offerings" class="bg-warmwood hover:bg-amber-600 text-forest-900 font-bold px-7 py-3.5 rounded-full text-center transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2 text-sm">
+                            <i data-lucide="coffee" class="w-4 h-4"></i> Explore Counter Offerings
+                        </a>
+                        <a href="https://www.google.com/maps/dir/?api=1&destination=34A+Christchurch+Rd,+Ringwood+BH24+1DN" target="_blank" rel="noopener noreferrer" class="bg-white/10 hover:bg-white/20 text-cream border border-white/30 font-medium px-7 py-3.5 rounded-full text-center backdrop-blur-md transition-all flex items-center justify-center gap-2 text-sm">
+                            <i data-lucide="navigation" class="w-4 h-4 text-warmwood"></i> Get Directions
+                        </a>
+                    </div>
+
+                    <!-- Quick verified badges -->
+                    <div class="pt-6 border-t border-white/15 grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs text-cream/80">
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="check-circle2" class="w-4 h-4 text-warmwood shrink-0"></i>
+                            <span>Walk-in Service</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="check-circle2" class="w-4 h-4 text-warmwood shrink-0"></i>
+                            <span>Dog Friendly</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="check-circle2" class="w-4 h-4 text-warmwood shrink-0"></i>
+                            <span>Outdoor Seating</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="check-circle2" class="w-4 h-4 text-warmwood shrink-0"></i>
+                            <span>Wheelchair Access</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Hero Photo Slot -->
+                <div class="lg:col-span-5">
+                    <div class="relative rounded-3xl border-2 border-dashed border-white/30 p-6 bg-white/5 backdrop-blur-sm photo-placeholder text-forest-900 shadow-2xl flex flex-col justify-between min-h-[360px] sm:min-h-[400px]">
+                        
+                        <div class="flex items-center justify-between border-b border-forest-800/10 pb-4">
+                            <div class="flex items-center gap-2">
+                                <span class="w-3 h-3 rounded-full bg-warmwood"></span>
+                                <span class="font-mono text-xs text-forest-800 font-bold uppercase tracking-wider">Photo Slot — Hero Feature</span>
+                            </div>
+                            <span class="bg-forest-800 text-cream text-[10px] font-bold px-2.5 py-1 rounded-full">Exterior & Counter</span>
+                        </div>
+
+                        <div class="my-auto text-center py-8 px-4">
+                            <div class="w-16 h-16 rounded-2xl bg-forest-800 text-warmwood flex items-center justify-center mx-auto mb-4 shadow-inner">
+                                <i data-lucide="camera" class="w-8 h-8"></i>
+                            </div>
+                            <h3 class="font-serif font-bold text-lg text-forest-900 mb-1">Cafe Photo Frame</h3>
+                            <p class="text-xs text-earth-800 max-w-xs mx-auto leading-relaxed">
+                                Space reserved for real photo of Forest & Bean entrance, coffee bar, or storefront display.
+                            </p>
+                        </div>
+
+                        <a href="https://www.google.com/maps/dir/?api=1&destination=34A+Christchurch+Rd,+Ringwood+BH24+1DN" target="_blank" rel="noopener noreferrer" class="bg-white/80 hover:bg-white rounded-xl p-3 text-center border border-forest-100 shadow-sm block transition-colors">
+                            <p class="text-[11px] font-semibold text-forest-900">📍 34A Christchurch Rd, Ringwood</p>
+                            <p class="text-[10px] text-earth-800">Click for Directions • Counter ordering</p>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section / Our Vibe -->
+    <section class="py-16 sm:py-24 bg-cream" id="about">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left: 2 Photo Slots Layout -->
+                <div class="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="border-2 border-dashed border-forest-200 rounded-2xl p-6 bg-forest-50/50 min-h-[220px] flex flex-col justify-between photo-placeholder">
+                        <div class="flex justify-between items-center text-xs font-mono text-forest-800 font-bold">
+                            <span>PHOTO SLOT 01</span>
+                            <i data-lucide="image" class="w-4 h-4 text-warmwood"></i>
+                        </div>
+                        <div class="text-center py-6">
+                            <i data-lucide="coffee" class="w-8 h-8 text-forest-800 mx-auto mb-2"></i>
+                            <p class="text-xs font-semibold text-forest-900">Specialty Coffee & Teas</p>
+                            <p class="text-[10px] text-earth-800 mt-1">Counter photo placeholder</p>
+                        </div>
+                        <a href="https://www.google.com/maps/dir/?api=1&destination=34A+Christchurch+Rd,+Ringwood+BH24+1DN" target="_blank" rel="noopener noreferrer" class="text-[10px] text-center text-earth-800 font-mono hover:text-warmwood underline">34A Christchurch Rd</a>
+                    </div>
+
+                    <div class="border-2 border-dashed border-forest-200 rounded-2xl p-6 bg-forest-50/50 min-h-[220px] flex flex-col justify-between photo-placeholder sm:mt-8">
+                        <div class="flex justify-between items-center text-xs font-mono text-forest-800 font-bold">
+                            <span>PHOTO SLOT 02</span>
+                            <i data-lucide="image" class="w-4 h-4 text-warmwood"></i>
+                        </div>
+                        <div class="text-center py-6">
+                            <i data-lucide="sun" class="w-8 h-8 text-forest-800 mx-auto mb-2"></i>
+                            <p class="text-xs font-semibold text-forest-900">Outdoor Seating Area</p>
+                            <p class="text-[10px] text-earth-800 mt-1">Patio photo placeholder</p>
+                        </div>
+                        <div class="text-[10px] text-center text-earth-800 font-mono">Dog Friendly Space</div>
+                    </div>
+                </div>
+
+                <!-- Right Text -->
+                <div class="lg:col-span-6 space-y-6">
+                    <div>
+                        <span class="text-earth-800 font-semibold text-xs uppercase tracking-widest">Our Vibe in Ringwood</span>
+                        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-forest-900 mt-1">A Calm, Welcoming Spot for Everyone</h2>
+                    </div>
+
+                    <p class="text-earth-800 text-sm sm:text-base leading-relaxed">
+                        Located at <a href="https://www.google.com/maps/dir/?api=1&destination=34A+Christchurch+Rd,+Ringwood+BH24+1DN" target="_blank" rel="noopener noreferrer" class="font-bold underline hover:text-warmwood">34A Christchurch Rd</a>, Forest & Bean is designed as a peaceful, casual sanctuary in Ringwood[cite: 1]. Whether you are popping in for your morning espresso, grabbing a quick bite, sitting down for breakfast, or taking a moment to relax during solo dining, you are always welcome[cite: 1].
+                    </p>
+
+                    <p class="text-earth-800 text-sm sm:text-base leading-relaxed">
+                        We operate as a simple <strong>walk-in cafe with counter ordering</strong>[cite: 1]. No need to book in advance—just step right in, order your favorite drink and bake at the counter, and make yourself at home[cite: 1].
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-4 pt-4 border-t border-forest-100">
+                        <div class="flex items-center gap-3">
+                            <div class="p-2.5 rounded-xl bg-forest-50 text-forest-800 shrink-0">
+                                <i data-lucide="armchair" class="w-5 h-5 text-warmwood"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xs text-forest-900">Casual & Trendy</h4>
+                                <p class="text-[11px] text-earth-800">Warm, calm atmosphere</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-3">
+                            <div class="p-2.5 rounded-xl bg-forest-50 text-forest-800 shrink-0">
+                                <i data-lucide="accessibility" class="w-5 h-5 text-warmwood"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xs text-forest-900">Step-Free Access</h4>
+                                <p class="text-[11px] text-earth-800">Wheelchair-accessible entrance</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Highlights Grid -->
+    <section class="py-16 bg-white border-y border-forest-100" id="highlights">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-earth-800 font-semibold text-xs uppercase tracking-widest">Why Visit Us</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-forest-900 mt-1 mb-3">Highlights & Services</h2>
+                <p class="text-earth-800 text-sm">
+                    Everything you need to know about visiting Forest & Bean in Ringwood[cite: 1].
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+                <div class="p-5 rounded-2xl bg-cream border border-forest-100 hover:border-sage transition-colors">
+                    <div class="w-10 h-10 rounded-xl bg-forest-800 text-warmwood flex items-center justify-center mb-3">
+                        <i data-lucide="coffee" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="font-bold text-sm text-forest-900 mb-1">Great Coffee</h3>
+                    <p class="text-xs text-earth-800">Freshly brewed specialty coffees served daily[cite: 1].</p>
+                </div>
+
+                <div class="p-5 rounded-2xl bg-cream border border-forest-100 hover:border-sage transition-colors">
+                    <div class="w-10 h-10 rounded-xl bg-forest-800 text-warmwood flex items-center justify-center mb-3">
+                        <i data-lucide="cake" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="font-bold text-sm text-forest-900 mb-1">Great Dessert</h3>
+                    <p class="text-xs text-earth-800">Delicious cakes, pastries & sweet treats[cite: 1].</p>
+                </div>
+
+                <div class="p-5 rounded-2xl bg-cream border border-forest-100 hover:border-sage transition-colors">
+                    <div class="w-10 h-10 rounded-xl bg-forest-800 text-warmwood flex items-center justify-center mb-3">
+                        <i data-lucide="cup-soda" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="font-bold text-sm text-forest-900 mb-1">Tea Selection</h3>
+                    <p class="text-xs text-earth-800">Curated herbal and specialty tea blends[cite: 1].</p>
+                </div>
+
+                <div class="p-5 rounded-2xl bg-cream border border-forest-100 hover:border-sage transition-colors">
+                    <div class="w-10 h-10 rounded-xl bg-forest-800 text-warmwood flex items-center justify-center mb-3">
+                        <i data-lucide="utensils-crossed" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="font-bold text-sm text-forest-900 mb-1">Breakfast & Brunch</h3>
+                    <p class="text-xs text-earth-800">Popular morning meals and quick bites[cite: 1].</p>
+                </div>
+
+                <div class="p-5 rounded-2xl bg-cream border border-forest-100 hover:border-sage transition-colors">
+                    <div class="w-10 h-10 rounded-xl bg-forest-800 text-warmwood flex items-center justify-center mb-3">
+                        <i data-lucide="sun" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="font-bold text-sm text-forest-900 mb-1">Outdoor Seating</h3>
+                    <p class="text-xs text-earth-800">Relax outside on sunny Ringwood days[cite: 1].</p>
+                </div>
+
+                <div class="p-5 rounded-2xl bg-cream border border-forest-100 hover:border-sage transition-colors">
+                    <div class="w-10 h-10 rounded-xl bg-forest-800 text-warmwood flex items-center justify-center mb-3">
+                        <i data-lucide="user" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="font-bold text-sm text-forest-900 mb-1">Solo Dining Friendly</h3>
+                    <p class="text-xs text-earth-800">A peaceful spot to work, read, or unwind[cite: 1].</p>
+                </div>
+
+                <div class="p-5 rounded-2xl bg-cream border border-forest-100 hover:border-sage transition-colors">
+                    <div class="w-10 h-10 rounded-xl bg-forest-800 text-warmwood flex items-center justify-center mb-3">
+                        <i data-lucide="smile" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="font-bold text-sm text-forest-900 mb-1">Kids & Groups</h3>
+                    <p class="text-xs text-earth-800">Family-friendly and welcoming atmosphere[cite: 1].</p>
+                </div>
+
+                <div class="p-5 rounded-2xl bg-cream border border-forest-100 hover:border-sage transition-colors">
+                    <div class="w-10 h-10 rounded-xl bg-forest-800 text-warmwood flex items-center justify-center mb-3">
+                        <i data-lucide="credit-card" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="font-bold text-sm text-forest-900 mb-1">Easy Payments</h3>
+                    <p class="text-xs text-earth-800">Cards & contactless mobile payments accepted[cite: 1].</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Serve Section -->
+    <section class="py-16 bg-cream" id="offerings">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-earth-800 font-semibold text-xs uppercase tracking-widest">Fresh at the Counter</span>
+                <h2 class="font-serif text-3xl sm:text-5xl font-bold text-forest-900 mt-1 mb-3">What We Serve</h2>
+                <p class="text-earth-800 text-sm leading-relaxed">
+                    Walk in and order directly at our counter[cite: 1]. Breakfast & Lunch served until 3:00 PM daily, alongside specialty coffee, treats, and dog goodies[cite: 1].
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Breakfast -->
+                <div class="bg-white rounded-2xl p-6 border border-forest-100 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 bg-forest-50 text-forest-800 rounded-xl flex items-center justify-center mb-4">
+                            <i data-lucide="utensils" class="w-6 h-6 text-warmwood"></i>
+                        </div>
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="font-serif font-bold text-xl text-forest-900">Breakfast</h3>
+                            <span class="text-[10px] font-bold bg-forest-50 text-forest-800 px-2 py-0.5 rounded-full border border-forest-100">Served until 3pm</span>
+                        </div>
+                        <p class="text-xs text-earth-800 leading-relaxed mb-4">
+                            Hearty morning classics cooked to order[cite: 1]:
+                        </p>
+                        <ul class="text-xs text-forest-900 space-y-2 mb-4">
+                            <li class="flex items-start gap-1.5">
+                                <span class="text-warmwood font-bold">•</span>
+                                <div><strong>Full English Breakfast:</strong> Sausages, bacon, hashbrowns, baked beans, plum tomatoes, mushrooms, toast & egg[cite: 1].</div>
+                            </li>
+                            <li class="flex items-start gap-1.5">
+                                <span class="text-warmwood font-bold">•</span>
+                                <div><strong>Eggs Benedict & Royale:</strong> Toasted English muffin with poached eggs, hollandaise & bacon or smoked salmon[cite: 1].</div>
+                            </li>
+                            <li class="flex items-start gap-1.5">
+                                <span class="text-warmwood font-bold">•</span>
+                                <div><strong>VE Breakfast:</strong> Avocado, hashbrowns, plum tomato, mushroom, spinach, sourdough & chilli jam[cite: 1].</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Lunch & Toasties -->
+                <div class="bg-white rounded-2xl p-6 border border-forest-100 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 bg-forest-50 text-forest-800 rounded-xl flex items-center justify-center mb-4">
+                            <i data-lucide="sandwich" class="w-6 h-6 text-sage-dark"></i>
+                        </div>
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="font-serif font-bold text-xl text-forest-900">Paninis & Toasties</h3>
+                            <span class="text-[10px] font-bold bg-forest-50 text-forest-800 px-2 py-0.5 rounded-full border border-forest-100">Served until 3pm</span>
+                        </div>
+                        <p class="text-xs text-earth-800 leading-relaxed mb-4">
+                            Seasoned and pressed to a warm, crisp finish[cite: 1]:
+                        </p>
+                        <ul class="text-xs text-forest-900 space-y-2 mb-4">
+                            <li class="flex items-start gap-1.5">
+                                <span class="text-warmwood font-bold">•</span>
+                                <div><strong>Pressed Paninis:</strong> Spanish Chorizo, Hunters Chicken, or Smoked Ham & Mature Cheese[cite: 1].</div>
+                            </li>
+                            <li class="flex items-start gap-1.5">
+                                <span class="text-warmwood font-bold">•</span>
+                                <div><strong>Halloumi Burger:</strong> Warm caramelised pineapple with grilled halloumi & chilli jam[cite: 1].</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Specialty Drinks -->
+                <div class="bg-white rounded-2xl p-6 border border-forest-100 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 bg-forest-50 text-forest-800 rounded-xl flex items-center justify-center mb-4">
+                            <i data-lucide="coffee" class="w-6 h-6 text-warmwood"></i>
+                        </div>
+                        <h3 class="font-serif font-bold text-xl text-forest-900 mb-2">Specialty Coffee & Teas</h3>
+                        <p class="text-xs text-earth-800 leading-relaxed mb-4">
+                            Handcrafted espresso drinks, iced brews, chocolates & teas[cite: 1]:
+                        </p>
+                        <ul class="text-xs text-forest-900 space-y-2 mb-4">
+                            <li class="flex items-start gap-1.5">
+                                <span class="text-warmwood font-bold">•</span>
+                                <div><strong>Coffee Classics:</strong> Espresso, Flat White, Cappuccino, Dirty Chai & Iced Lattes[cite: 1].</div>
+                            </li>
+                            <li class="flex items-start gap-1.5">
+                                <span class="text-warmwood font-bold">•</span>
+                                <div><strong>Specialty Teas:</strong> English Breakfast, Earl Grey, Peppermint, Green Tea & Chamomile[cite: 1].</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dog Friendly Section -->
+    <section class="py-16 bg-amber-50/50 border-y border-amber-200/60" id="dogs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div class="lg:col-span-7 space-y-4">
+                    <div class="inline-flex items-center gap-2 bg-amber-100 text-earth-900 px-3 py-1 rounded-full text-xs font-bold">
+                        <i data-lucide="dog" class="w-4 h-4 text-warmwood"></i>
+                        <span>100% Dog Friendly Cafe</span>
+                    </div>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-forest-900">Dogs Are Always Welcome!</h2>
+                    <p class="text-earth-800 text-sm sm:text-base leading-relaxed">
+                        We don't just allow dogs—we love having them! Bring your pup inside or relax together in our outdoor seating area. We offer complimentary puppuccinos and treats at the counter[cite: 1].
+                    </p>
+                </div>
+                <div class="lg:col-span-5 bg-white p-6 rounded-2xl border border-amber-200 text-center shadow-sm">
+                    <div class="w-12 h-12 rounded-full bg-amber-100 flex items-center justify-center mx-auto mb-3">
+                        <i data-lucide="heart" class="w-6 h-6 text-warmwood"></i>
+                    </div>
+                    <h3 class="font-bold text-forest-900 text-base mb-1">Pup Cups Available</h3>
+                    <p class="text-xs text-earth-800">Ask our staff for a whipped pup cup during your visit!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photos Gallery Section -->
+    <section class="py-16 bg-cream" id="gallery">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-earth-800 font-semibold text-xs uppercase tracking-widest">Atmosphere & Food</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-forest-900 mt-1 mb-3">Photos</h2>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="photo-placeholder rounded-2xl p-6 border-2 border-dashed border-forest-200 min-h-[200px] flex flex-col justify-between">
+                    <div class="flex justify-between items-center text-xs font-mono text-forest-800 font-bold">
+                        <span>GALLERY PHOTO 01</span>
+                        <i data-lucide="camera" class="w-4 h-4 text-warmwood"></i>
+                    </div>
+                    <div class="text-center py-4">
+                        <p class="text-xs font-semibold text-forest-900">Coffee Bar & Espresso Machine</p>
+                    </div>
+                </div>
+                <div class="photo-placeholder rounded-2xl p-6 border-2 border-dashed border-forest-200 min-h-[200px] flex flex-col justify-between">
+                    <div class="flex justify-between items-center text-xs font-mono text-forest-800 font-bold">
+                        <span>GALLERY PHOTO 02</span>
+                        <i data-lucide="camera" class="w-4 h-4 text-warmwood"></i>
+                    </div>
+                    <div class="text-center py-4">
+                        <p class="text-xs font-semibold text-forest-900">Fresh Bakery Display</p>
+                    </div>
+                </div>
+                <div class="photo-placeholder rounded-2xl p-6 border-2 border-dashed border-forest-200 min-h-[200px] flex flex-col justify-between">
+                    <div class="flex justify-between items-center text-xs font-mono text-forest-800 font-bold">
+                        <span>GALLERY PHOTO 03</span>
+                        <i data-lucide="camera" class="w-4 h-4 text-warmwood"></i>
+                    </div>
+                    <div class="text-center py-4">
+                        <p class="text-xs font-semibold text-forest-900">Outdoor Seating & Storefront</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location & Hours Section -->
+    <section class="py-16 bg-forest-900 text-cream" id="location">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="text-warmwood font-semibold text-xs uppercase tracking-widest">Find Us</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold">Location & Hours</h2>
+                    
+                    <div class="space-y-3">
+                        <div class="flex items-start gap-3">
+                            <i data-lucide="map-pin" class="w-5 h-5 text-warmwood shrink-0 mt-0.5"></i>
+                            <div>
+                                <h4 class="font-bold text-sm">Address</h4>
+                                <a href="https://www.google.com/maps/dir/?api=1&destination=34A+Christchurch+Rd,+Ringwood+BH24+1DN" target="_blank" rel="noopener noreferrer" class="text-xs text-cream/80 hover:text-warmwood underline block mt-0.5">
+                                    34A Christchurch Rd, Ringwood BH24 1DN
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-3">
+                            <i data-lucide="clock" class="w-5 h-5 text-warmwood shrink-0 mt-0.5"></i>
+                            <div>
+                                <h4 class="font-bold text-sm">Opening Hours</h4>
+                                <p class="text-xs text-cream/80 mt-0.5">Monday – Sunday: Open Daily for Breakfast & Lunch</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=34A+Christchurch+Rd,+Ringwood+BH24+1DN" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-warmwood text-forest-900 font-bold px-6 py-3 rounded-full text-xs hover:bg-amber-600 transition-colors">
+                        <i data-lucide="navigation" class="w-4 h-4"></i> Get Google Maps Directions
+                    </a>
+                </div>
+
+                <div class="lg:col-span-6">
+                    <div class="bg-white/10 p-6 rounded-2xl border border-white/20 backdrop-blur-md text-center">
+                        <i data-lucide="map" class="w-12 h-12 text-warmwood mx-auto mb-3"></i>
+                        <h3 class="font-bold text-lg mb-2">Visit Us in Ringwood</h3>
+                        <p class="text-xs text-cream/80 max-w-sm mx-auto mb-4">
+                            Located centrally on Christchurch Road with walk-in seating, step-free access, and outdoor space[cite: 1].
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-forest-950 text-cream/60 text-xs py-8 border-t border-white/10 text-center">
+        <p>© Forest & Bean Cafe Ringwood. All rights reserved.</p>
+    </footer>
+
+    <!-- Initialize Lucide Icons & Mobile Menu Toggle -->
+    <script>
+        lucide.createIcons();
+
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
